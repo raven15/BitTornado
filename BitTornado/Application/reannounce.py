@@ -19,9 +19,10 @@ def reannounce(fname, announce, announce_list=None, verbose=False):
             print 'old announce-list for {}: {}'.format(
                 fname, '|'.join(','.join(tier)
                                 for tier in metainfo['announce-list']))
-        if announce_list is not None:
-            metainfo['announce-list'] = announce_list
-        else:
-            metainfo.pop('announce-list', None)
+    if announce_list is not None:
+        metainfo['announce-list'] = announce_list
+    else:
+        metainfo.pop('announce-list', None)
 
     metainfo.write(fname)
+
